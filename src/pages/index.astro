@@ -1,5 +1,13 @@
 ---
-
+const supabaseUrl = "https://upacudqcdbpucfqmuugy.supabase.co/rest/v1/billeder";
+const data = await fetch(supabaseUrl, {
+  method: "GET",
+  headers: {
+    apikey: "sb_publishable_CDDZKhO4Kahbk1FGSS9K1A_u0jI6XAC",
+  },
+}).then((res) => res.json());
+console.log(data);
+console.log("test");
 ---
 
 <html lang="en">
@@ -30,6 +38,11 @@
     </header>
 
     <main>
+      {
+        data.map((billede) => {
+          <p>{billede.billede_src}</p>;
+        })
+      }
       <img src="/public/imgs/forside_billede.webp" alt="forside" />
       <section>
         <img src="/public/imgs/logo2.svg" alt="logo2" />
