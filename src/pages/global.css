@@ -1,8 +1,16 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+
+/* =========================================
+   HEADER
+========================================= */
 header {
   width: 100%;
   display: flex;
@@ -21,9 +29,10 @@ header img {
   height: auto;
 }
 
-/* -------------------------
-   DESKTOP NAVIGATION
--------------------------- */
+
+/* =========================================
+   NAVIGATION – DESKTOP
+========================================= */
 nav .menu {
   display: flex;
   gap: 2rem;
@@ -43,10 +52,10 @@ nav .menu a:hover {
   color: var(--color-accent, #7a5c4b);
 }
 
-/* -------------------------
-   BURGER MENU (MOBILE)
--------------------------- */
 
+/* =========================================
+   BURGER MENU – MOBILE
+========================================= */
 .burger {
   width: 28px;
   height: 22px;
@@ -63,10 +72,10 @@ nav .menu a:hover {
   border-radius: 2px;
 }
 
-/* -------------------------
-   MOBILE NAV MENU
--------------------------- */
 
+/* =========================================
+   NAVIGATION – MOBILE MENU BEHAVIOR
+========================================= */
 @media (max-width: 800px) {
   nav .menu {
     position: fixed;
@@ -83,12 +92,10 @@ nav .menu a:hover {
     border-left: 1px solid #eee;
   }
 
-  /* Show burger */
   .burger {
     display: flex;
   }
 
-  /* Hide desktop menu initially */
   nav .menu.active {
     right: 0;
   }
@@ -98,7 +105,7 @@ nav .menu a:hover {
   }
 }
 
-/* Optional: animate burger → X */
+/* Burger → X */
 .burger.active .line:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -109,6 +116,35 @@ nav .menu a:hover {
   transform: translateY(-9px) rotate(-45deg);
 }
 
+
+
+/* people-container bakgrunn → beige */
+.people-container {
+  background-color: #F3F1F1; /* beige */
+  padding: 2rem;
+  margin-bottom: 2rem; /* mellomrom under */
+}
+
+/* Første grid_1_1 → blå */
+.grid_1_11 {
+  background-color: #C7DCDF;
+  padding: 2rem;
+  margin-bottom: 2rem; /* mellomrom under */
+}
+
+/* Andre grid_1_1 → beige */
+.grid_1_1 {
+  background-color: #F3F1F1;
+  padding: 2rem;
+  margin-bottom: 2rem; /* mellomrom under */
+}
+
+
+
+
+/* =========================================
+   ROOT VARIABLES
+========================================= */
 :root {
   --font-main: "Inter", sans-serif;
   --color-dark: #332b25;
@@ -118,7 +154,27 @@ nav .menu a:hover {
 
   --max-width: 1200px;
 }
+/* grid_4_1fr → beige */
+.grid_4_1fr {
+  background-color: #C7DCDF; /* beige */
+  padding: 2rem;
+  margin-bottom: 2rem; /* mellomrom under */
+}
 
+/* grid_2_1fr → blå */
+.grid_2_1fr {
+  background-color: #F3F1F1; /* blå */
+  padding: 2rem;
+ 
+  margin-bottom: 2rem; /* mellomrom under */
+}
+
+
+
+
+/* =========================================
+   BODY
+========================================= */
 body {
   font-family: var(--font-main);
   color: var(--color-dark);
@@ -126,10 +182,10 @@ body {
   line-height: 1.6;
 }
 
-/* -------------------------
-   GLOBAL WRAPPER & SPACING
--------------------------- */
 
+/* =========================================
+   GLOBAL WRAPPERS + TEXT
+========================================= */
 main,
 header,
 footer section {
@@ -148,10 +204,10 @@ p {
   margin-bottom: 0.8rem;
 }
 
-/* -------------------------
-   BUTTONS
--------------------------- */
 
+/* =========================================
+   BUTTONS
+========================================= */
 a[href="knap"] {
   display: inline-block;
   background: var(--color-dark);
@@ -167,10 +223,10 @@ a[href="knap"]:hover {
   background: var(--color-accent);
 }
 
-/* -------------------------
-   HERO SECTION
--------------------------- */
 
+/* =========================================
+   HERO SECTION
+========================================= */
 main > img {
   width: 100%;
   height: auto;
@@ -187,10 +243,10 @@ main > section:first-of-type img {
   margin-bottom: 1.2rem;
 }
 
-/* -------------------------
-   GRID SYSTEM
--------------------------- */
 
+/* =========================================
+   GRID SYSTEM
+========================================= */
 .grid_4_1fr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -218,60 +274,163 @@ main > section:first-of-type img {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   padding: 3rem 0;
+  
+}
+.grid_1_11fr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  
 }
 
-/* -------------------------
-   IMAGE STYLES
--------------------------- */
 
+/* =========================================
+   IMAGE STYLES
+========================================= */
 .grid_4_1fr img,
 .grid_2_1fr img,
 .grid_3_1fr img {
   width: 100%;
-  border-radius: 10px;
   object-fit: cover;
 }
 
-/* -------------------------
-   PRICING CARDS
--------------------------- */
 
+/* =========================================
+   PRICING CARDS
+========================================= */
 .grid_3_1fr article {
-  border: 1px solid #e0dfdc;
+  border: 1px solid #e5e4e4;
   padding: 2rem;
   text-align: center;
   border-radius: 12px;
+  background-color: #F3F1F1;
 }
 
 .grid_3_1fr article p:nth-child(1) {
   font-weight: 600;
 }
 
+
 /* -------------------------
    FOOTER
 -------------------------- */
 
 footer {
-  background: var(--color-light);
+  background: #c7dcdf;
   padding-top: 4rem;
   margin-top: 4rem;
+  width: 100%;
+}
+
+footer .grid_1_1fr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 2rem 1rem;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+footer h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  margin-bottom: 0.6rem;
+  color: #332b25;
+}
+
+
+.email_input {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 260px;
+  padding-bottom: 0.4rem;
+  margin: 1.2rem 0;
+  border-bottom: 2px solid #332b25;
+}
+
+.email_input img {
+  width: 32px;
+  height: auto;
+}
+
+.email_input span {
+  font-size: 1rem;
+  color: #332b25;
+}
+
+
+footer a.footer_btn {
+  display: block;
+  width: 260px;
+  text-align: center;
+  padding: 0.9rem 0;
+  border-radius: 30px;
+  background: #351616;
+  color: white; 
+  margin-top: 0.8rem;
+  text-decoration: none;
+}
+
+
+footer .grid_1_1fr div:nth-child(2) a {
+  display: block;
+  text-decoration: none;
+  color: #332b25;
+  margin-bottom: 0.7rem;
+}
+
+
+.footer_socials {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.8rem;
 }
 
 .footer_socials img {
-  width: 26px;
-  margin-right: 0.5rem;
+  width: 42px;
+  height: 42px;
 }
+
 
 footer .footer_line {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid #d3cfcc;
+  border-top: 1px solid #381414;
   text-align: center;
 }
 
-/* -------------------------
-   RESPONSIVE DESIGN
--------------------------- */
+footer .footer_line p {
+  margin-bottom: 1rem;
+}
+
+footer .footer_line img {
+  width: 90px;
+  margin-top: 0.5rem;
+}
+
+
+@media (max-width: 900px) {
+  footer .grid_1_1fr {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 3rem;
+  }
+
+  .footer_socials {
+    justify-content: flex-start;
+  }
+}
+
+
+
+
 
 @media (max-width: 900px) {
   .grid_2_1fr {
@@ -289,6 +448,9 @@ footer .footer_line {
   .grid_1_1fr {
     grid-template-columns: 1fr;
   }
+  .grid_1_11fr {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
@@ -298,10 +460,10 @@ footer .footer_line {
   }
 }
 
-/* -------------------------
-   UNDERSIDE – GLOBAL TITLES
--------------------------- */
 
+/* =========================================
+   UNDERSIDE – GLOBAL TITLES
+========================================= */
 h1,
 h2 {
   font-weight: 500;
@@ -309,14 +471,12 @@ h2 {
   margin-bottom: 1.2rem;
 }
 
-/* Centreret intro ("Tag på en lydrejse her") */
 body > div:nth-of-type(1) h1 {
   text-align: center;
   margin-top: 3rem;
   font-size: 1.8rem;
 }
 
-/* Logo + swirl grafik centreret */
 body > div:nth-of-type(2),
 body > div:nth-of-type(3) {
   display: flex;
@@ -330,11 +490,10 @@ body > div:nth-of-type(3) img {
   opacity: 0.25;
 }
 
-/* -------------------------
-   GRID SECTIONS
--------------------------- */
 
-/* Swirl baggrund */
+/* =========================================
+   GRID SECTIONS (SWIRLS ETC.)
+========================================= */
 div > img[alt="swirl"] {
   position: absolute;
   top: 200px;
@@ -344,7 +503,6 @@ div > img[alt="swirl"] {
   z-index: -1;
 }
 
-/* === TEKSTSEKTIONER === */
 .grid_1_1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -361,18 +519,69 @@ div > img[alt="swirl"] {
 }
 
 .grid_1_1 p {
-  max-width: 500px;
+  margin-left: 0;
   font-size: 1rem;
 }
 
-/* === BILLEDER === */
 .grid_1_1 img {
+  width: 100%;
+
+  object-fit: cover;
+}
+.grid_1_11 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4rem 8%;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid #dcdcdc;
+  margin-top: 30px;
+}
+
+.grid_1_11 h1,
+.grid_1_11 h2 {
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.grid_1_11 p {
+  margin-left: 0;
+  font-size: 1rem;
+}
+
+.grid_1_11 img {
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
 }
+@media (max-width: 900px) {
+  .grid_1_11 {
+    grid-template-columns: 1fr; /* én kolonne */
+    text-align: center;         /* sentrer teksten */
+    padding: 2rem 5%;           /* juster padding */
+    gap: 2rem;                  /* beholder gap */
+  }
 
-/* Ekstra: lille swirl element */
+  .grid_1_11 .left,
+  .grid_1_11 .right {
+    display: block;
+    text-align: center;         /* sentrer tekst og bilder */
+  }
+
+  .grid_1_11 img {
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+}
+
+img[alt="Soundwheel logo"] {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
 .grid_1_1::after {
   content: "";
   background-image: url("/imgs/Swirl.webp");
@@ -386,7 +595,44 @@ div > img[alt="swirl"] {
   opacity: 0.15;
 }
 
-/* === RESPONSIV === */
+
+/* =========================================
+   HERO CUSTOM
+========================================= */
+.hero-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+}
+
+.hero-container h1 {
+  margin: 0 0 40px 0;
+  font-size: 2.5rem;
+}
+
+
+
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 200px;
+  height: auto;
+  pointer-events: none;
+  margin-top: 150px;
+}
+
+.under-container {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+
+/* =========================================
+   RESPONSIVE – HERO & GRID
+========================================= */
 @media (max-width: 900px) {
   .grid_1_1 {
     grid-template-columns: 1fr;
@@ -394,7 +640,7 @@ div > img[alt="swirl"] {
   }
 
   .grid_1_1 img {
-    order: -1; /* billeder øverst på mobil */
+    order: -1;
     max-width: 90%;
     margin: 0 auto;
   }
@@ -404,10 +650,10 @@ div > img[alt="swirl"] {
   }
 }
 
-/* -------------------------
-   PRICING / PLAN CARDS
--------------------------- */
 
+/* =========================================
+   PRICING / PLAN CARDS
+========================================= */
 .grid_3_1fr {
   max-width: var(--max-width);
   margin: 5rem auto;
@@ -433,10 +679,10 @@ div > img[alt="swirl"] {
   margin-top: 1rem;
 }
 
-/* -------------------------
-   RESPONSIVITET
--------------------------- */
 
+/* =========================================
+   RESPONSIVE – PRICING
+========================================= */
 @media (max-width: 900px) {
   .grid_1_1 {
     grid-template-columns: 1fr;
@@ -456,7 +702,6 @@ div > img[alt="swirl"] {
     grid-template-columns: 1fr;
   }
 
-  /* Flyt swirls væk på mobil */
   .grid_1_1:first-of-type::before,
   .grid_1_1:nth-of-type(3)::after {
     display: none;
@@ -466,5 +711,53 @@ div > img[alt="swirl"] {
 @media (max-width: 600px) {
   body > div:nth-of-type(3) img {
     width: 100%;
+  }
+}
+
+
+/* =========================================
+   PEOPLE SECTION
+========================================= */
+.people-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 250px;
+}
+
+.person-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.person-text {
+  text-align: left;
+}
+
+.person-box img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+ 
+  cursor: pointer;
+}
+
+
+/* =========================================
+   RESPONSIVE – PEOPLE
+========================================= */
+@media (max-width: 768px) {
+  .person-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .person-box img {
+    margin: 0 auto;
   }
 }
