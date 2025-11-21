@@ -1,4 +1,18 @@
 ---
+import "/src/pages/global.css";
+const url = "https://aufcvbwskmgdlnnazqju.supabase.co/rest/v1/people";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1ZmN2Yndza21nZGxubmF6cWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2NTMwNzksImV4cCI6MjA3OTIyOTA3OX0.fLJz9gYf7TwKx3zjdTTPFvg3rsoWDl-2dHu7UsjOt9s";
+
+const options = {
+  headers: {
+    apikey: key
+  }
+};
+
+const supaRequest = await fetch(url, options);
+const supaData: any[] = await supaRequest.json();
+
+console.log(supaData);
 
 ---
 
@@ -28,33 +42,57 @@
         <div class="line"></div>
       </div>
     </header>
+    <main>
     <div>
-      <h1>Tag på en lydrejse her</h1>
+      <div class="hero-container">
+  <h1>Tag på en lydrejse her</h1>
+  <img src="/public/imgs/Swirl.webp" alt="swirl" class="hero-swirl" />
+  <img src="/imgs/logo_02.webp" alt="logo" class="hero-logo" />
+</div>
     </div>
-    <div>
-      <img src="/imgs/logo_02.webp" alt="logo" />
+
+
+    
+
+<div class="people-container">
+  {supaData.map((person: any) => (
+    <div class="person-box">
+      <div class="person-text">
+        <h3>{person.title}</h3>
+        <p>{person.name}</p>
+        <p>Soundwheel blev født ud af en længsel efter stilhed. Her ville vi skabe et univers, hvor man kan finde ro og inspiration gennem lyd og visuelle oplevelser.</p>
+        <h2>Fra scenelys til stillhed</h2>
+        <p>Som den ene halvdel af UFO Yepha var Kristian vant til fulde sale, men ønskede at udforske lydens og stilhedens verden på en helt ny måde. SoundWheel blev resultatet af denne rejse.</p>
+      </div>
+      <a href={person.img} target="_blank" rel="noopener noreferrer">
+        <img src="/imgs/kristian2.webp" alt={person.name} style="cursor: pointer;" />
+      </a>
     </div>
-    <div>
-      <img src="/public/imgs/Swirl.webp" alt="swirl" />
-    </div>
-    <div class="grid_1_1">
-      <h1>Soundwheel gennem tiden</h1>
-      <img src="/public/imgs/kristian2.webp" alt="kristian" />
-      <p>Soundwheel blev født ud af en længsel efter stilhed. Efter år i musikbranchen opdagede Kristian, at lyden ikke kun handler om rytme - men om rum, ro og resonans. I dag er Soundwheel et lydunivers, hvor musik møder mindfulness, og hvor hver tone inviterer til fordybelse.</p>
-      <h2>Fra scenelys til stillhed</h2>
-      <p>Som den ene halvdel af UFO Yepha var Kristian vant til fulde sale, lys og larm.Men midt i tempoet voksede trangen til at finde noget ægte. Soundwheel blev hans nye vej: en lydrejse mod ro, refleksion og balance.</p>
-    </div>
-    <div class="grid_1_1">
-      <h2>Teamet bag Soundwheel</h2>
-      <p>Soundwheel udspringer af en fælles fascination af, hvordan lyd kan skabe ro, fokus og fællesskab. Efter mange år i musikbranchen søgte Kristian en ny måde at arbejde med lyd på, som inviterer til nærvær frem for støj. Undervejs samlede han Claus, Jonas og Andreas, der hver især bidrager med kreativitet, teknisk viden og sans for oplevelser.</p>
-      <h2>Sammen skaber de Soundwheel, et univers hvor lyd bliver et redskab til balance i en travl verden.</h2>
-      <img src="/public/imgs/team2.webp" alt="team2" />
-    </div>
-    <div class="grid_1_1">
-      <img src="/public/imgs/kristian.webp" alt="kristian2" />
-      <h2>Bring ro og lydbevidsthed ind i jeres hverdag</h2>
-      <p>Soundwheel skaber skræddersyede foredrag og lydrejser, der styrker ro, fokus og fællesskab på arbejdspladsen. Kristian deler sin historie og guider deltagerne gennem sanselige oplevelser, der bringer balance midt i hverdagen.</p>
-    </div>
+  ))}
+</div>
+
+
+
+    <div class="grid_1_11">
+  <div class="left">
+    <h2>Teamet bag Soundwheel</h2>
+    <p>Soundwheel udspringer af en fælles fascination af, hvordan lyd kan skabe ro, fokus og fællesskab. Efter mange år i musikbranchen søgte Kristian en ny måde at arbejde med lyd på, som inviterer til nærvær frem for støj. Undervejs samlede han Claus, Jonas og Andreas, der hver især bidrager med kreativitet, teknisk viden og sans for oplevelser.</p>
+    <h2>Sammen skaber de Soundwheel, et univers hvor lyd bliver et redskab til balance i en travl verden.</h2>
+  </div>
+  <div class="right">
+    <img src="/public/imgs/team2.webp" alt="team2" />
+  </div>
+</div>
+
+<div class="grid_1_1">
+  <div class="left">
+    <img src="/public/imgs/kristian.webp" alt="kristian2" />
+  </div>
+  <div class="right">
+    <h2>Bring ro og lydbevidsthed ind i jeres hverdag</h2>
+    <p>Soundwheel skaber skræddersyede foredrag og lydrejser, der styrker ro, fokus og fællesskab på arbejdspladsen. Kristian deler sin historie og guider deltagerne gennem sanselige oplevelser, der bringer balance midt i hverdagen.</p>
+  </div>
+</div>
     <section class="grid_3_1fr">
       <div>
         <p>Soundwheel Work 1K</p>
@@ -75,31 +113,37 @@
         <a href="knap">VÆLG PLAN</a>
       </div>
     </section>
+    </main>
   </body>
 
-  <footer>
-    <section class="grid_1_1fr">
-      <div>
-        <h2>Nyhedsbrev</h2>
-        <p>Tilmeld dig vores nyhedsbrev<br />og få det seneste nyt fra os som den første!</p>
-        <p>E-mail...</p>
-        <a href="knap">Til</a>
+ <footer>
+  <section class="grid_1_1fr">
+    <div>
+      <h2>Nyhedsbrev</h2>
+      <p>Tilmeld dig vores nyhedsbrev<br />og få det seneste nyt fra os som den første!</p>
+
+      <div class="email_input">
+        <img src="/public/imgs/brev.webp" alt="Email" />
+        <span>E-mail..</span>
       </div>
-      <div>
-        <h2>Om os</h2>
-        <a href="">Kontakt os her</a>
-        <a href="">Vilkår og abonnement</a>
-        <a href="">Privatlivspolitik</a>
-        <div class="footer_socials">
-          <a href=""><img src="/public/imgs/Facebook.svg" alt="Facebook" /></a>
-          <a href=""><img src="/public/imgs/Instagram.svg" alt="Instagram" /></a>
-          <a href=""><img src="/public/imgs/Linkedin.svg" alt="LinkedIn" /></a>
-        </div>
+
+      <a href="knap" class="footer_btn">Tilmeld dig</a>
+    </div>
+    <div>
+      <h2>Om os</h2>
+      <a href="">Kontakt os her</a>
+      <a href="">Vilkår og abonnement</a>
+      <a href="">Privatlivspolitik</a>
+      <div class="footer_socials">
+        <a href=""><img src="/public/imgs/Facebook.svg" alt="Facebook" /></a>
+        <a href=""><img src="/public/imgs/Instagram.svg" alt="Instagram" /></a>
+        <a href=""><img src="/public/imgs/Linkedin.svg" alt="LinkedIn" /></a>
       </div>
-    </section>
-    <section class="footer_line">
-      <p>© 2025 SoundWheel. Alle rettigheder forbeholdes.</p>
-      <img src="" alt="Soundwheel logo" />
-    </section>
-  </footer>
+    </div>
+  </section>
+  <section class="footer_line">
+    <p>© 2025 SoundWheel. Alle rettigheder forbeholdes.</p>
+     <img src="/public/imgs/logo2.svg" alt="Soundwheel logo" />
+  </section>
+</footer>
 </html>

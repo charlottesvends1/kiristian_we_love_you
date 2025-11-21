@@ -8,6 +8,20 @@ const data = await fetch(supabaseUrl, {
 }).then((res) => res.json());
 console.log(data);
 console.log("test");
+const url = "https://aufcvbwskmgdlnnazqju.supabase.co/rest/v1/people";
+const key ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1ZmN2Yndza21nZGxubmF6cWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2NTMwNzksImV4cCI6MjA3OTIyOTA3OX0.fLJz9gYf7TwKx3zjdTTPFvg3rsoWDl-2dHu7UsjOt9s";
+const options = {
+  headers:{
+
+    apikey: key,
+
+  },
+
+};
+const supaRequest = await fetch(url, options);
+const supaData = await supaRequest.json();
+console.log(supaData, supaData);
+
 ---
 
 <html lang="en">
@@ -38,11 +52,7 @@ console.log("test");
     </header>
 
     <main>
-      {
-        data.map((billede) => {
-          <p>{billede.billede_src}</p>;
-        })
-      }
+     
       <img src="/public/imgs/forside_billede.webp" alt="forside" />
       <section>
         <img src="/public/imgs/logo2.svg" alt="logo2" />
@@ -115,30 +125,36 @@ console.log("test");
         </div>
       </section>
     </main>
-    <footer>
-      <section class="grid_1_1fr">
-        <div>
-          <h2>Nyhedsbrev</h2>
-          <p>Tilmeld dig vores nyhedsbrev<br />og få det seneste nyt fra os som den første!</p>
-          <p>E-mail...</p>
-          <a href="knap">Til</a>
-        </div>
-        <div>
-          <h2>Om os</h2>
-          <a href="">Kontakt os her</a>
-          <a href="">Vilkår og abonnement</a>
-          <a href="">Privatlivspolitik</a>
-          <div class="footer_socials">
-            <a href=""><img src="/public/imgs/Facebook.svg" alt="Facebook" /></a>
-            <a href=""><img src="/public/imgs/Instagram.svg" alt="Instagram" /></a>
-            <a href=""><img src="/public/imgs/Linkedin.svg" alt="LinkedIn" /></a>
-          </div>
-        </div>
-      </section>
-      <section class="footer_line">
-        <p>© 2025 SoundWheel. Alle rettigheder forbeholdes.</p>
-        <img src="" alt="Soundwheel logo" />
-      </section>
-    </footer>
+<footer>
+  <section class="grid_1_1fr">
+    <div>
+      <h2>Nyhedsbrev</h2>
+      <p>Tilmeld dig vores nyhedsbrev<br />og få det seneste nyt fra os som den første!</p>
+
+      <div class="email_input">
+        <img src="/public/imgs/brev.webp" alt="Email" />
+        <span>E-mail..</span>
+      </div>
+
+      <a href="knap" class="footer_btn">Tilmeld dig</a>
+    </div>
+    <div>
+      <h2>Om os</h2>
+      <a href="">Kontakt os her</a>
+      <a href="">Vilkår og abonnement</a>
+      <a href="">Privatlivspolitik</a>
+      <div class="footer_socials">
+        <a href=""><img src="/public/imgs/Facebook.svg" alt="Facebook" /></a>
+        <a href=""><img src="/public/imgs/Instagram.svg" alt="Instagram" /></a>
+        <a href=""><img src="/public/imgs/Linkedin.svg" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </section>
+  <section class="footer_line">
+    <p>© 2025 SoundWheel. Alle rettigheder forbeholdes.</p>
+     <img src="/public/imgs/logo2.svg" alt="Soundwheel logo" />
+  </section>
+</footer>
+
   </body>
 </html>
